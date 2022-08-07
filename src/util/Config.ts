@@ -38,11 +38,11 @@ const DEFAULT_CONFIG = {
         content: "be the star you want to rail\n\n\t--MemetrollsXD--",
         sender: "memetolXD + contributors gang",
         time: Math.round(Date.now() / 1000),
-        attachment: {itemList: []} as ItemList,
+        attachment: {itemList: []},
         isRead: false,
         expireTime: Math.round(Date.now() / 1000) + 1000000, // 3 months
         paraList: [] 
-    }] as ClientMail[]
+    }]
 }
 type DefaultConfig = typeof DEFAULT_CONFIG;
 
