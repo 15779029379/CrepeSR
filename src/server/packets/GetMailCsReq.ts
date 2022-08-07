@@ -11,7 +11,7 @@ export default async function handle(session: Session, packet: Packet) {
         mailList: mailData,
         noticeMailList: [],
         start: 0,
-        totalNum: 1,
+        totalNum: mailData.length,
         isEnd: false
     } as GetMailScRsp);
 }
