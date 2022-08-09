@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { resolve } from 'path';
 import { VerboseLevel } from './Logger';
+import { ClientMail, ItemList } from '../data/proto/StarRail'
 
 const DEFAULT_CONFIG = {
     // General
@@ -28,7 +29,20 @@ const DEFAULT_CONFIG = {
         MAINTENANCE: false,
         MAINTENANCE_MSG: "Server is in maintenance mode."
     },
-    AUTO_ACCOUNT: false
+    AUTO_ACCOUNT: false,
+
+    MAILS: [{
+        id: 1,
+        templateId: 1,
+        title: "CrepeSR",
+        content: "be the star you want to rail\n\n\t--MemetrollsXD--",
+        sender: "memetolXD + contributors gang",
+        time: Math.round(Date.now() / 1000),
+        attachment: {itemList: []},
+        isRead: false,
+        expireTime: Math.round(Date.now() / 1000) + 1000000, // 3 months
+        paraList: [] 
+    }]
 }
 type DefaultConfig = typeof DEFAULT_CONFIG;
 
@@ -82,6 +96,7 @@ export default class Config {
         MAINTENANCE_MSG: string;
     } = Config.config.GAMESERVER;
     public static AUTO_ACCOUNT: boolean = Config.config.AUTO_ACCOUNT;
+    public static MAILS: ClientMail[] = Config.config.MAILS;
 
     private constructor() { }
 }
