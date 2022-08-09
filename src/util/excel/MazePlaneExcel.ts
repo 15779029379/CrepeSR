@@ -25,6 +25,11 @@ export default class MazePlaneExcel {
         return MazePlaneExcelTable[planeId.toString()];
     }
 
+
+    public static fromFloorId(floorId: number): MazePlaneExcelTableEntry {
+        return MazePlaneExcelTable[floorId.toString().slice(0,5)];
+    }
+
     public static getGameModeForPlaneType(planeType: string): number {
         switch (planeType) {
             case "Town": return 1;
@@ -39,7 +44,6 @@ export default class MazePlaneExcel {
             case "Client": return 10;
             case "ChallengeActivity": return 11;
         }
-
         return 0;
     }
 }
